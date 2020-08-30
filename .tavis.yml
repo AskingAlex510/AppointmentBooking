@@ -1,2 +1,5 @@
 language: java
-os: windows 
+os: windows
+jdk:
+  - 12
+  - 10
