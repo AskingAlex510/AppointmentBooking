@@ -17,7 +17,7 @@ import java.util.List;
 
 public class MyTest {
 
-	//test method identifier
+	//Customer Name Validation Test
 	@Test
 	public void test1() throws IOException {
 
@@ -43,7 +43,7 @@ public class MyTest {
 			e.printStackTrace();
 		}
 	}
-	//test method identifier
+	//Customer Address Validation Test
 	@Test
 	public void test2() throws IOException {
 
@@ -69,7 +69,7 @@ public class MyTest {
 			e.printStackTrace();
 		}
 	}
-	//test method identifier
+	//Customer Phone Verification Test
 	@Test
 	public void test3() throws IOException {
 
@@ -88,6 +88,110 @@ public class MyTest {
 			String json = stringBuilder.toString();
 			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
 			Assert.assertEquals(customers.get(0).getCustomerPhone(), "0912345678");
+
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	//username verification test
+	@Test
+	public void test4() throws IOException {
+
+		try{
+			URL url = new URL(TestConfig.URL+"customers");
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+			String line = "";
+			StringBuilder stringBuilder = new StringBuilder();
+
+			while((line = bufferedReader.readLine()) !=null){
+				stringBuilder.append(line);
+			}
+
+			Gson gson = new Gson();
+			String json = stringBuilder.toString();
+			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customers.get(0).getUsername(), "Alex123");
+
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	//password verification test
+	@Test
+	public void test5() throws IOException {
+
+		try{
+			URL url = new URL(TestConfig.URL+"customers");
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+			String line = "";
+			StringBuilder stringBuilder = new StringBuilder();
+
+			while((line = bufferedReader.readLine()) !=null){
+				stringBuilder.append(line);
+			}
+
+			Gson gson = new Gson();
+			String json = stringBuilder.toString();
+			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customers.get(0).getPassword(), "123");
+
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	//Service Verification Test
+	@Test
+	public void test6() throws IOException {
+
+		try{
+			URL url = new URL(TestConfig.URL+"customers");
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+			String line = "";
+			StringBuilder stringBuilder = new StringBuilder();
+
+			while((line = bufferedReader.readLine()) !=null){
+				stringBuilder.append(line);
+			}
+
+			Gson gson = new Gson();
+			String json = stringBuilder.toString();
+			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customers.get(0).getService(), "General Banking");
+
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	//bookingTime verification test
+	@Test
+	public void test7() throws IOException {
+
+		try{
+			URL url = new URL(TestConfig.URL+"customers");
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+			String line = "";
+			StringBuilder stringBuilder = new StringBuilder();
+
+			while((line = bufferedReader.readLine()) !=null){
+				stringBuilder.append(line);
+			}
+
+			Gson gson = new Gson();
+			String json = stringBuilder.toString();
+			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customers.get(0).getBookingTime(), "7:00");
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
