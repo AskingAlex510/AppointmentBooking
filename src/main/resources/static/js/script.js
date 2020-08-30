@@ -9,7 +9,7 @@ function jsonToTable() {
     fetch('http://localhost:8080/customers')
         .then(res => res.json())
         .then(customer => {
-            // get data for headers ('id', 'Name', 'Address' and 'Phone')
+            // get data for headers
             // create empty array first then store the first key
             var col = [];
             for (var i = 0; i < customer.length; i++) {

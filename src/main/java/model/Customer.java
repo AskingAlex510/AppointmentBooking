@@ -18,10 +18,16 @@ public class Customer {
     private String customerName;
     private String customerAddress;
     private String customerPhone;
+    private String service;
     private String bookingTime;
 
     public Customer() {
     }
+
+    public String getService() {return service;}
+
+    public void setService(String service) {this.service = service;}
+
     public String getBookingTime() {return bookingTime;}
 
     public void setBookingTime(String bookingTime) { this.bookingTime = bookingTime; }

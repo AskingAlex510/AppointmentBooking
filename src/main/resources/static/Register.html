@@ -31,10 +31,44 @@
             <h1 style="text-align: center; vertical-align: middle">
                 Welcome
             </h1>
+            <p>
+
+
+
+
+
+
+
+
+            </p>
+            <p>
+                Hello and welcome to The First Online Bank of Viet Nam.
+<p>
+                This page is for customer that would like to schedule and appointment with a banker.
+                Valid services include:
+            <p>
+                - General Banking
+        </p>
+            <p>
+                - Investment Services
+            </p>
+            <p>
+                and
+            </p>
+            <p>
+                - Loan Consultation
+            </p>
+</p>
+                Please use the adjacent form to provide your name, contact information, desired appointment time and
+                service. You will also need to create a username and login so that you can log-in at a later time to
+                check your request status.
+
+                Thank you for banking with The First Online Bank of Viet Nam.
+            </p>
         </div>
         <div class="container-fluid col-sm-6" style="border: solid 2px floralwhite; border-radius: 5px; ">
 
-                <h1 style="text-align: center"> Register </h1>
+                <h1 style="text-align: center">Register & Request an Appointment </h1>
 <!--            Username Field-->
                 <div class="form-group">
                     <label for="username">Username:</label>
@@ -60,6 +94,19 @@
                     <label for="cEmail">Email:</label>
                     <input type="text" class="form-control" id="cEmail" placeholder="Email" name="cEmail">
                 </div>
+
+            <!--            Time-->
+            <div class="form-group">
+                <label for="cTime">Appointment Time:</label>
+                <input type="text" class="form-control" id="cTime" placeholder="Time" name="cTime">
+            </div>
+
+            <!--            Service-->
+            <div class="form-group">
+                <label for="cService">Purpose of Appointment:</label>
+                <input type="text" class="form-control" id="cService" placeholder="Service" name="cService">
+            </div>
+
 <!--            Submit Button-->
                 <div class="form-group" style="text-align: center;">
                     <button type="submit" class="btn btn-default" onclick="register()">Submit</button>
@@ -68,7 +115,7 @@
         </div>
 <!--        Button link to login page-->
         <div class="form-group" style="text-align: center;">
-            <button type="Login" class="btn btn-default" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=4gs2rtimk0llo44411n4c3p5mf')>Login</button>
+            <button type="Login" class="btn btn-default" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=4gs2rtimk0llo44411n4c3p5mf')>Already registered? Click here to login.</button>
         </div>
     </div>
 
@@ -83,7 +130,9 @@
         let cName = document.getElementById("cName").value
         let cAddress = document.getElementById("cAddress").value
         let cContact = document.getElementById("cEmail").value
-        if ((username === '' || password === '' || cName === '' || cAddress === '' || cContact === '')) {
+        let cTime = document.getElementById("cTime").value
+        let cService = document.getElementById("cService").value
+        if ((username === '' || password === '' || cName === '' || cAddress === '' || cContact === '' || cTime === '' || cService === '')) {
             alert("Please fill in empty field")
         } else {
             fetch(`http://localhost:8080/customers`, {
@@ -91,9 +140,9 @@
                     'Accept': 'application/json', 'Content-Type': 'application/json'
                 },
                 method: "POST",
-                body: JSON.stringify({username:username, password: SHA1(password), customerName: cName, customerAddress: cAddress, customerPhone: cContact})
+                body: JSON.stringify({username:username, password: SHA1(password), customerName: cName, customerAddress: cAddress, customerPhone: cContact, bookingTime: cTime, service: cService})
             }).then(res => {
-                alert("Registration successful. You will now be redirected to Login.")
+                alert("Your appointment request has been received. You may log in with your username and password to check the status of your request.")
                 window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html')
             })
         }
