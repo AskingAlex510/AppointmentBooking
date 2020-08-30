@@ -59,7 +59,6 @@ function jsonToTable() {
             divContainer.appendChild(table);
         })
 }
-
 function addCustomer() { //post
     var name = document.getElementById('customerName').value //get value from an html element
     var address = document.getElementById('customerAddress').value
