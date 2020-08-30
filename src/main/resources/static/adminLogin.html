@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>Admin Login Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Allerta" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/8e646d4d3b.js" crossorigin="anonymous"></script>
     <style>
         .btn:hover{
             background-color: red;
@@ -21,49 +24,56 @@
 </head>
 
 
-<body style="background-color: cornflowerblue">
+<body style="background-color: #206a5d">
+<div style="font-size: 200px; color: #81b214; position: fixed; bottom: 30%; left: 25%; width: 300px; border: none;}">
+    <i class="fas fa-seedling">
+
+    </i>
+</div>
 <!-- Body container -->
 <div class="container-fluid" >
     <div class = "container row" style="margin-left: auto;
     margin-right: auto; margin-top: 10%">
         <!-- Defines the login field -->
         <div class="container-fluid col-sm-6">
-            <h1 style="text-align: center; vertical-align: middle">
-                The First Online Bank of Viet Nam
+            <h1 style= "text-align: center; vertical-align: middle;color:white; font-family: 'Allerta', Helvetica, Arial, sans-serif; font-size: 50px; line-height: 55px;">
+                Welcome To Demeter Finances
             </h1>
+            <h2>
+                First Online Bank of Viet Name
+            </h2>
         </div>
-        <div class="container-fluid col-sm-6" style="border: solid 2px floralwhite; border-radius: 5px; ">
+        <div class="container-fluid col-sm-6" style="border: solid 2px floralwhite;background-color: #007D9D; border-radius: 5px; ">
 
-            <h1 style="text-align: center">Admin Login </h1>
+            <h1 style="text-align: center;color:white; font-family: 'Allerta', Helvetica, Arial, sans-serif;font-size: 30px;line-height: 30px;padding-top: 20px">Admin Login </h1>
             <!-- Username -->
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+            <div class="form-group" >
+                <label for="username" style="color:white">Username:</label>
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username" >
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
+                <label for="password" style="color:white">Password:</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password">
             </div>
 
-            <div class="form-group" style="text-align: center;">
-                <button type="submit" class="btn btn-default" onclick="verifyLogin()">Login</button>
+            <div class="form-group"  style="text-align: center;">
+                <button type="submit" class="btn btn-default" style="background-color:#81b214;border-style:none;  color:white" onclick="verifyLogin()">Login</button>
             </div>
 
 
             <!--     Button to return to registration page       -->
         </div>
-        <div class="form-group" style="text-align: center;">
-            <button type="Register" class="btn btn-default" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Register.html?_ijt=84sm544of9261ihltcnnhjica1')>Register</button>
+        <div class="form-group" style="text-align: center;position: fixed; bottom: 35%; right: 25%; width: 30px; border: none;">
+            <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Register.html?_ijt=84sm544of9261ihltcnnhjica1')>Register</button>
         </div>
     </div>
-</div>
-<div class="form-group" style="text-align: center;">
-    <button type="Register" class="btn btn-default" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=1r9u9hfojphlocggiq2p4p7h96')>Customer Login</button>
-</div>
-</div>
-
 
 </div>
+
+<div class="form-group" style="text-align: center;color:white; position: fixed; bottom: 35%; right: 33%; width: 200px; border: none;">
+    <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=v5n26neh6sflfglpe9jd8hd7t4')>Login</button>
+</div>
+
 </body>
 
 <script>
@@ -80,8 +90,8 @@
                 for(let i=0; i<json.length; i++){
                     if (json[i].username === username &&
                         json[i].password === SHA1(password) ){
-                        alert("Authentication successful. You will now be redirected to the main page.")
-                        window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/list.html?_ijt=9id6r0s0a5pcpuq7jopn4jfs31')
+                        alert("Administrative Authentication successful. You will now be redirected to the customer database.")
+                        window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/list.html?_ijt=v5n26neh6sflfglpe9jd8hd7t4')
                         verified = true
                         return
 
