@@ -1,0 +1,63 @@
+<h2>Add new customer</h2>
+Name: <input type="text" id="type"/>
+<button onclick="add()">Add</button>
+
+<h2>List of teachers</h2>
+<div id="teacherList"></div>
+
+<script>
+
+getTeachers()
+
+
+    function add(){ //post
+
+      var type = document.getElementById('type').value //get value from an html element
+
+     fetch('http://localhost:8080/ServiceType', {
+             headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+             },
+             method: "POST",
+             body: JSON.stringify({type: type})
+
+     }).then(res => getTeachers())
+
+
+        console.log('Added')
+    }
+
+    function getTeachers(){
+
+        var teacherList = document.getElementById('teacherList')
+
+        teacherList.innerHTML = ''
+
+        fetch('http://localhost:8080/ServiceType')
+        .then(res => res.json())
+        .then(json => {
+
+            for(i=0; i<json.length; i++){
+
+                var id = json[i].id
+
+                var deleteLink = `<button onclick='deleteServiceType(${id})'>Delete</button>`
+
+               teacherList.innerHTML += '<div>'+ json[i].type + deleteLink + '</div>'
+
+            }
+
+        })
+
+    }
+
+
+    function deleteServiceType(id){
+          fetch('http://localhost:8080/ServiceType/'+id, {
+            method: 'delete'
+          })
+          .then(res=> getTeachers())
+    }
+
+</script>
