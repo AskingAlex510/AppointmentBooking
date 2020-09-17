@@ -25,6 +25,11 @@
 
 
 <body style="background-color: #206a5d">
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 <div style="font-size: 200px; color: #81b214; position: fixed; bottom: 30%; left: 25%; width: 300px; border: none;}">
   <i class="fas fa-seedling">
 
@@ -46,11 +51,11 @@
             <!-- Username -->
             <div class="form-group" >
                 <label for="username" style="color:white">Username:</label>
-                <input type="text" class="form-control" id="username" placeholder="Username" name="username" >
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username" data-toggle="tooltip" data-placement="bottom" title="Your username must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.">
             </div>
             <div class="form-group">
                 <label for="password" style="color:white">Password:</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password" data-toggle="tooltip" data-placement="bottom" title="Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.">
             </div>
 
             <div class="form-group"  style="text-align: center;">
@@ -93,6 +98,9 @@
                         return
 
                     }
+                    else
+                    {alert("I am an alert box!");}
+
                 }
             }).then(res => { if(!verified) alert("Authentication failed. Invalid username or password.")})
     }

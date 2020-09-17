@@ -25,6 +25,11 @@
 
 <body style="background-color:#206a5d">
 <!-- Body container -->
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 <div style="font-size: 200px; color: #81b214; position: fixed; bottom: 30%; left: 25%; width: 300px; border: none;}">
     <i class="fas fa-seedling" style="z-index:1000; overflow:visible">
 
@@ -34,7 +39,11 @@
     <div class = "container row" style="margin-left: auto;
     margin-right: auto; margin-top: 10%">
         <div class="container-fluid col-sm-6" style="border: solid 2px floralwhite; border-radius: 5px;background-color: #007D9D">
-            <h1 style="text-align: center;color: white; vertical-align: middle; z-index:-1">
+            <div class="tooltip">Hover over me
+                <span class="tooltiptext">Tooltip text</span>
+            </div>
+            <h1
+                    class="tooltip">Hover over me style="text-align: center;color: white; vertical-align: middle; z-index:-1;">
                 Information
             </h1>
 
@@ -49,7 +58,7 @@
                 This page is for customers that would like to schedule an appointment with a banker.
                 Our services are:
             </p>
-            <p style="text-align: center; color: white">
+            <p style="text-align: center; color: white; .tooltip {position: relative;display: inline-block;border-bottom: 1px dotted black;}">
                 - General Banking
             </p>
             <p style="text-align: center; color: white">
@@ -72,39 +81,41 @@
 <!--            Username Field-->
                 <div class="form-group">
                     <label for="username">Username:</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                    <input type="text" class="form-control" id="username" placeholder="Username" name="username" data-toggle="tooltip" data-placement="bottom" title="Your username must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.">
                 </div>
+
+
 <!--            Password Field-->
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" data-toggle="tooltip" data-placement="bottom" title="Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.">
                 </div>
 <!--            Name Field-->
                 <div class="form-group">
                     <label for="cName">Name: </label>
-                    <input type="text" class="form-control" id="cName" placeholder="Name" name="cName">
+                    <input type="text" class="form-control" id="cName" placeholder="Name" name="cName" data-toggle="tooltip" data-placement="bottom" title="Name">
                 </div>
 <!--            Address Field-->
                 <div class="form-group">
                     <label for="cAddress">Address: </label>
-                    <input type="text" class="form-control" id="cAddress" placeholder="Address" name="cAddress">
+                    <input type="text" class="form-control" id="cAddress" placeholder="Address" name="cAddress" data-toggle="tooltip" data-placement="bottom" title="Address">
                 </div>
 <!--            Email Field-->
                 <div class="form-group">
                     <label for="cEmail">Email:</label>
-                    <input type="text" class="form-control" id="cEmail" placeholder="Email" name="cEmail">
+                    <input type="text" class="form-control" id="cEmail" placeholder="Email" name="cEmail" data-toggle="tooltip" data-placement="bottom" title="Email">
                 </div>
 
             <!--            Time-->
             <div class="form-group">
                 <label for="cTime">Appointment Time:</label>
-                <input type="text" class="form-control" id="cTime" placeholder="Time" name="cTime">
+                <input type="text" class="form-control" id="cTime" placeholder="Time" name="cTime" data-toggle="tooltip" data-placement="bottom" title="Time">
             </div>
 
             <!--            Service-->
             <div class="form-group">
                 <label for="cService">Purpose of Appointment:</label>
-                <input type="text" class="form-control" id="cService" placeholder="Service" name="cService">
+                <input type="text" class="form-control" id="cService" placeholder="Service" name="cService" data-toggle="tooltip" data-placement="bottom" title="Service">
             </div>
 
 <!--            Submit Button-->
