@@ -25,11 +25,11 @@
 
 
 <body style="background-color: #206a5d">
-<script>
+<script>//We want Hover messages to appear
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
-</script>
+</script>//Logo
 <div style="font-size: 200px; color: #81b214; position: fixed; bottom: 30%; left: 25%; width: 300px; border: none;}">
   <i class="fas fa-seedling">
 
@@ -53,11 +53,12 @@
                 <label for="username" style="color:white">Username:</label>
                 <input type="text" class="form-control" id="username" placeholder="Username" name="username" data-toggle="tooltip" data-placement="bottom" title="Your username must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.">
             </div>
+            <!-- Password -->
             <div class="form-group">
                 <label for="password" style="color:white">Password:</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password" data-toggle="tooltip" data-placement="bottom" title="Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.">
             </div>
-
+            <!-- Login Button -->
             <div class="form-group"  style="text-align: center;">
                 <button type="submit" class="btn btn-default" style="background-color:#81b214;border-style:none;  color:white" onclick="verifyLogin()">Login</button>
             </div>
@@ -71,7 +72,7 @@
     </div>
 
 </div>
-
+<!--     Button to return to go to the Admin Login       -->
 <div class="form-group" style="text-align: center;color:white; position: fixed; bottom: 35%; right: 33%; width: 200px; border: none;">
     <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/adminLogin.html?_ijt=a3p5sdrtnf40e8ql25842apm9')>Admin Login</button>
 </div>
@@ -79,7 +80,7 @@
 </body>
 
 <script>
-
+    <!--Login Verification-->
     function verifyLogin(){
         let username = document.getElementById("username").value
         let password = document.getElementById("password").value
