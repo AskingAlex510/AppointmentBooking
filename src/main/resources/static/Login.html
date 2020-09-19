@@ -98,11 +98,16 @@
                         return
 
                     }
-                    else
-                    {alert("I am an alert box!");}
+                    else if (json[i].username !== username){
+                    alert("Invalid Username");
+                    verified = false}
+
+                    else if (json[i].password !== SHA1(password)){
+                            alert("Invalid Password");
+                            verified = false}
 
                 }
-            }).then(res => { if(!verified) alert("Authentication failed. Invalid username or password.")})
+            })
     }
     // reference: http://www.webtoolkit.info/javascript_sha1.html#.X0DwBcgzbZs
     function SHA1 (msg) {
