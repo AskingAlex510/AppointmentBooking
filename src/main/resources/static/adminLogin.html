@@ -39,9 +39,6 @@
             <h1 style= "text-align: center; vertical-align: middle;color:white; font-family: 'Allerta', Helvetica, Arial, sans-serif; font-size: 50px; line-height: 55px;">
                 Welcome To Demeter Finances
             </h1>
-            <h2>
-                First Online Bank of Viet Name
-            </h2>
         </div>
         <div class="container-fluid col-sm-6" style="border: solid 2px floralwhite;background-color: #007D9D; border-radius: 5px; ">
 
@@ -71,7 +68,7 @@
 </div>
 
 <div class="form-group" style="text-align: center;color:white; position: fixed; bottom: 35%; right: 33%; width: 200px; border: none;">
-    <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=v5n26neh6sflfglpe9jd8hd7t4')>Login</button>
+    <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=v5n26neh6sflfglpe9jd8hd7t4')>Customer Login</button>
 </div>
 
 </body>
@@ -90,14 +87,19 @@
                 for(let i=0; i<json.length; i++){
                     if (json[i].username === username &&
                         json[i].password === SHA1(password) ){
-                        alert("Administrative Authentication successful. You will now be redirected to the customer database.")
-                        window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/list.html?_ijt=v5n26neh6sflfglpe9jd8hd7t4')
+                        alert("Authentication successful. You will now be redirected to the main page.")
+                        window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Status.html?_ijt=qn0qt86bf7j72k5um0ni7m8mrl')
                         verified = true
                         return
 
                     }
-                }
-            }).then(res => { if(!verified) alert("Authentication failed. Invalid username or password.")})
+                    else if (json[i].username !== username){
+                        alert("Invalid Username");
+                        verified = false}
+
+                    else if (json[i].password !== SHA1(password)){
+                        alert("Invalid Password");
+                        verified = false}
     }
     // reference: http://www.webtoolkit.info/javascript_sha1.html#.X0DwBcgzbZs
     function SHA1 (msg) {
@@ -562,6 +564,6 @@
 
 
 
-    }
+    }})}
 
 </script>

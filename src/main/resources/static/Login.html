@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/8e646d4d3b.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8e646d4d3b.js" crossorigin="anonymous"></script>//To use fonts and images
     <style>
         .btn:hover{
             background-color: red;
@@ -25,11 +25,11 @@
 
 
 <body style="background-color: #206a5d">
-<script>
+<script>//We want Hover messages to appear
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
-</script>
+</script>//Logo
 <div style="font-size: 200px; color: #81b214; position: fixed; bottom: 30%; left: 25%; width: 300px; border: none;}">
   <i class="fas fa-seedling">
 
@@ -44,9 +44,6 @@
             <h1 style= "text-align: center; vertical-align: middle;color:white; font-family: 'Allerta', Helvetica, Arial, sans-serif; font-size: 50px; line-height: 55px;">
                 Welcome To Demeter Finances
             </h1>
-            <h2>
-                First Online Bank of Viet Name
-            </h2>
         </div>
         <div class="container-fluid col-sm-6" style="border: solid 2px floralwhite;background-color: #007D9D; border-radius: 5px; ">
 
@@ -56,11 +53,12 @@
                 <label for="username" style="color:white">Username:</label>
                 <input type="text" class="form-control" id="username" placeholder="Username" name="username" data-toggle="tooltip" data-placement="bottom" title="Your username must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.">
             </div>
+            <!-- Password -->
             <div class="form-group">
                 <label for="password" style="color:white">Password:</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password" data-toggle="tooltip" data-placement="bottom" title="Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.">
             </div>
-
+            <!-- Login Button -->
             <div class="form-group"  style="text-align: center;">
                 <button type="submit" class="btn btn-default" style="background-color:#81b214;border-style:none;  color:white" onclick="verifyLogin()">Login</button>
             </div>
@@ -74,7 +72,7 @@
     </div>
 
 </div>
-
+<!--     Button to return to go to the Admin Login       -->
 <div class="form-group" style="text-align: center;color:white; position: fixed; bottom: 35%; right: 33%; width: 200px; border: none;">
     <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/adminLogin.html?_ijt=a3p5sdrtnf40e8ql25842apm9')>Admin Login</button>
 </div>
@@ -82,7 +80,7 @@
 </body>
 
 <script>
-
+    <!--Login Verification-->
     function verifyLogin(){
         let username = document.getElementById("username").value
         let password = document.getElementById("password").value
@@ -101,11 +99,16 @@
                         return
 
                     }
-                    else
-                    {alert("I am an alert box!");}
+                    else if (json[i].username !== username){
+                    alert("Invalid Username");
+                    verified = false}
+
+                    else if (json[i].password !== SHA1(password)){
+                            alert("Invalid Password");
+                            verified = false}
 
                 }
-            }).then(res => { if(!verified) alert("Authentication failed. Invalid username or password.")})
+            })
     }
     // reference: http://www.webtoolkit.info/javascript_sha1.html#.X0DwBcgzbZs
     function SHA1 (msg) {
@@ -122,7 +125,7 @@
             return t4;
 
 
-        };
+        }
 
 
 
@@ -162,7 +165,7 @@
             return str;
 
 
-        };
+        }
 
 
 
@@ -196,7 +199,7 @@
             return str;
 
 
-        };
+        }
 
 
 
@@ -270,7 +273,7 @@
             return utftext;
 
 
-        };
+        }
 
 
 
